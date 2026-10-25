@@ -15,12 +15,9 @@ cask "plume-editor" do
     strategy :github_latest
   end
 
-  app "Plume.app"
+  depends_on :macos
 
-  # The app is not signed yet: without this, macOS refuses to open it the first time.
-  postflight do
-    system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{appdir}/Plume.app"]
-  end
+  app "Plume.app"
 
   zap trash: [
     "~/Library/Caches/coop.les-tilleuls.plume",
@@ -30,4 +27,9 @@ cask "plume-editor" do
     "~/Library/WebKit/coop.les-tilleuls.plume",
     "~/Library/WebKit/cz.stakovi.plume",
   ]
+
+  caveats <<~EOS
+    Plume is not signed yet: macOS refuses to open it the first time. Run once:
+      xattr -dr com.apple.quarantine #{appdir}/Plume.app
+  EOS
 end
