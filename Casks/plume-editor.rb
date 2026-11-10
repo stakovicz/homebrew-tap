@@ -1,10 +1,10 @@
 cask "plume-editor" do
   arch arm: "aarch64", intel: "x64"
 
-  version "0.4.1"
-  sha256 arm:          "89e19526d8b67da40c9b6396dfd98b26e64c86d0cb868c859e8fe55e6bf3e479",
-         intel:        "00ab5569e85500059951cba5f26ec8f445220eaa04bc7520a280435df8ded704",
-         x86_64_linux: "eb325d3d195b2b05908e869ac99434529981d4ca68cc5dfcdd2947e95be85458"
+  version "0.5.0"
+  sha256 arm:          "5104e99d016c2db65803e23009753e8a22fec556c38336f598f43cba5c9b3888",
+         intel:        "a182a98c6d6b2ba402f61d5e3032f41db77a953ccead29a6e65ff039aa4e0668",
+         x86_64_linux: "a2ac477da4268963c31ebb7a10b435da7c32521283cad2f48b83068920210fe8"
 
   on_macos do
     url "https://github.com/stakovicz/plume/releases/download/v#{version}/Plume_#{version}_#{arch}.dmg"
